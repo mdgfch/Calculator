@@ -1,0 +1,46 @@
+.main-container {
+    background-color: rgb(117, 147, 175);
+    border-radius: 8px;
+    padding: 8px;
+    height: 500px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+
+}
+.display {
+    display: flex;
+    background-color: azure;
+    padding: 8px 4px;
+    margin: 4px;
+    margin-bottom: 12px;
+    border-radius: 4px;
+    font-size: 40px;
+    justify-content: end;
+}
+.buttons {
+    display: flex;
+    flex-flow: row-reverse;
+    gap: 8px;
+    flex: 1;
+}
+.digits {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 4px;
+    justify-content: center;
+}
+.digits button {
+    padding: 8px 24px;
+    margin: 4px;
+}
+.operators {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.operators button {
+    padding: 8px 24px;
+    margin: 4px;
+}
