@@ -20,9 +20,10 @@ const operate = function(operator, x, y) {
 
 var display = document.querySelector('.display');
 var value = ""
+var prev = ""
 
 function setValue(input) {
-    value = Number(value + `${input}`)
+    value = value + `${input}`
 }
 function populateDisplay() {
     display.textContent = value;
@@ -30,15 +31,19 @@ function populateDisplay() {
 function clearDisplay() {
     display.textContent = "";
 }
-function resetValue() {
+function resetValues() {
     value = "";
+    prev = "";
 }
 function newValue() {
     prev = value;
     value = "";
 }
-function joinValues() {
-
+function joinValue() {
+    if (prev != "") {
+        value = (operate(operator, Number(prev), Number(value)));
+        populateDisplay();
+    } 
 }
 
 document.getElementById('0').addEventListener('click', function() {
@@ -88,34 +93,43 @@ document.getElementById('.').addEventListener('click', function() {
 
 //operators
 document.getElementById('add').addEventListener('click', function() {
+    console.log("prev: ", prev, " value: ", value)
+    joinValue();
     operator = add;
     newValue();
-    joinValues();
 })
 document.getElementById('subtract').addEventListener('click', function() {
+    joinValue();
     operator = subtract;
     newValue();
+    
 })
 document.getElementById('multiply').addEventListener('click', function() {
+    joinValue();
     operator = multiply;
     newValue();
 })
 document.getElementById('divide').addEventListener('click', function() {
+    joinValue();
     operator = divide;
     newValue();
 })
 //
 
 document.getElementById('equals').addEventListener('click', function() {
+    console.log("prev: ", prev, " value: ", value)
     if (operator === divide && value == "0") {
         alert("ERROR: ARE YOU OUT OF YOUR MIND??? YOU CAN'T DIVIDE BY ZERO!!")
     } else {
-        value = (operate(operator, prev, value));
+        let temp = value;
+        value = (operate(operator, Number(prev), Number(value)));
         populateDisplay();
+        prev = value;
+        value = temp;
     }
 })
 
 document.getElementById('clear').addEventListener('click', function() {
     clearDisplay();
-    resetValue();
+    resetValues();
 })
