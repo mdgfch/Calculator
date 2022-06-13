@@ -18,4 +18,16 @@ const operate = function(operator, x, y) {
     return operator(x, y);
 }
 
-console.log(operate(divide, 10, 2))
+var display = document.querySelector('.display');
+
+function populateDisplay(x) {
+    display.textContent += x
+}
+
+document.getElementById('0').addEventListener('click', function() {
+    populateDisplay(0);
+});
+document.getElementById('1').addEventListener('click', function() {
+    populateDisplay(1);
+    console.log(displayValue)
+})

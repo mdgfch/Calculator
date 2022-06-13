@@ -6,41 +6,68 @@
     width: 300px;
     display: flex;
     flex-direction: column;
-
 }
+button {
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
 .display {
     display: flex;
     background-color: azure;
+    height: 50px;
     padding: 8px 4px;
     margin: 4px;
     margin-bottom: 12px;
     border-radius: 4px;
+    border: 2px solid rgb(0, 0, 0, 0.5);
     font-size: 40px;
     justify-content: end;
+}
+.deletion {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0px 12px;
+    gap: 4px
+}
+.deletion button {
+    width: 25%;
+    padding: 12px 0px;
 }
 .buttons {
     display: flex;
     flex-flow: row-reverse;
+    padding: 12px;
     gap: 8px;
     flex: 1;
 }
 .digits {
     display: flex;
     flex-wrap: wrap;
-    align-content: flex-start;
+    width: 75%;
     gap: 4px;
     justify-content: center;
 }
 .digits button {
-    padding: 8px 24px;
-    margin: 4px;
+    width: 32%;
 }
 .operators {
     display: flex;
-    flex-direction: column;
-    gap: 4px;
+    width: 25%;
+    flex-wrap: wrap;
+    gap: 4px
 }
 .operators button {
-    padding: 8px 24px;
-    margin: 4px;
+    width: 96%;
+    background-color: rgb(55, 74, 93);
+    color: white;
+}
+#equals {
+    background-color: rgb(213, 172, 96);
+    color: white;
+}
+#clear {
+    background-color: rgb(184, 99, 99);
+    color: white;
 }
